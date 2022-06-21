@@ -38,7 +38,7 @@ export default function Login({ status }) {
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
             <ValidationErrors errors={errors} />
-
+            <div className="text-center mx-4">Admin Login</div>
             <form onSubmit={submit}>
                 <div>
                     <Label forInput="email" value="Email" />

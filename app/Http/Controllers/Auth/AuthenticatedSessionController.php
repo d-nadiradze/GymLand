@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 
 class AuthenticatedSessionController extends Controller
@@ -66,15 +67,21 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request for admin.
      *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
+     * @param \App\Http\Requests\Auth\LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws ValidationException
      */
     public function storeAdmin(LoginRequest $request)
     {
         $user = Admin::where('email', $request->email)->first();
 
         if ($user && Hash::check($request['password'],$user->password)){
-            Auth::guard('webStoreUsers')->login($user);
+            Auth::guard('admin')->login($user);
+
+        } else {
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed'),
+            ]);
         }
 
         $request->session()->regenerate();
@@ -91,6 +98,8 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
+        Auth::guard('admin')->logout();
+        Auth::guard('trainer')->logout();
 
         $request->session()->invalidate();
 

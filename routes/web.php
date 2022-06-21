@@ -36,7 +36,7 @@ Route::name('trainer.')->prefix('/trainer')->group(function () {
 
 Route::name('admin.')->prefix('/admin')->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('TrainerDashboard');
+        return Inertia::render('Admin/AdminDashboard');
     })->middleware(['auth:admin'])->name('dashboard');
 });
 

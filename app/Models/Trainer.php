@@ -19,8 +19,8 @@ class Trainer extends Authenticatable
         'password',
     ];
 
-    public function trainee () :HasMany
+    public function user () :HasMany
     {
-        return $this->hasMany(Trainee::class);
+        return $this->hasMany(User::class);
     }
 }
