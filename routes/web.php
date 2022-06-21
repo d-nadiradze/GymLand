@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -35,9 +36,12 @@ Route::name('trainer.')->prefix('/trainer')->group(function () {
 });
 
 Route::name('admin.')->prefix('/admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Admin/AdminDashboard');
-    })->middleware(['auth:admin'])->name('dashboard');
+
+    Route::get('/dashboard', [AdminController::class, 'index'])->middleware(['auth:admin'])->name('dashboard');
+    Route::get('/admins/table', [AdminController::class, 'table'])->middleware(['auth:admin'])->name('admin.table');
+    Route::get('/users/table', [AdminController::class, 'table'])->middleware(['auth:admin'])->name('users.table');
+    Route::get('/trainers/table', [AdminController::class, 'table'])->middleware(['auth:admin'])->name('trainers.table');
+
 });
 
 
