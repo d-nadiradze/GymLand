@@ -27,6 +27,7 @@
         "tailwindcss": "^3.0.18"
     },
     "dependencies": {
+        "@fortawesome/react-fontawesome": "^0.1.18",
         "@popperjs/core": "^2.11.5",
         "moment": "^2.29.3"
     }

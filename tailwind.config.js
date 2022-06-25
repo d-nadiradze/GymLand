@@ -13,6 +13,17 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                'introSectionBg': "url('.././images/homePageBg.png')",
+            },
+            colors: {
+                customOrange: {
+                    DEFAULT: '#FF7A56',
+                },
+                customBlack: {
+                    DEFAULT: '#262B35',
+                },
+            }
         },
     },
 

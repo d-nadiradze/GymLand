@@ -39,8 +39,8 @@ Route::name('admin.')->prefix('/admin')->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'index'])->middleware(['auth:admin'])->name('dashboard');
     Route::get('/admins/table', [AdminController::class, 'table'])->middleware(['auth:admin'])->name('admin.table');
-    Route::get('/users/table', [AdminController::class, 'table'])->middleware(['auth:admin'])->name('users.table');
-    Route::get('/trainers/table', [AdminController::class, 'table'])->middleware(['auth:admin'])->name('trainers.table');
+    Route::get('/users/table', [AdminController::class, 'usersTable'])->middleware(['auth:admin'])->name('users.table');
+    Route::get('/trainers/table', [AdminController::class, 'trainersTable'])->middleware(['auth:admin'])->name('trainers.table');
 
 });
 

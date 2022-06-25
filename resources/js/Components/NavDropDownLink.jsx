@@ -3,7 +3,7 @@ import { createPopper } from "@popperjs/core";
 import { Link } from '@inertiajs/inertia-react';
 
 
-export const NavDropDownLink = ({ children, dropdownItems }) => {
+export const NavDropDownLink = ({ children, dropdownItems, active }) => {
     // dropdown props
     const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
     const btnDropdownRef = React.createRef();
@@ -22,11 +22,11 @@ export const NavDropDownLink = ({ children, dropdownItems }) => {
         <>
             <div className="flex">
                 <div className="w-full">
-                    <div className="relative inline-flex align-middle w-full">
+                    <div className="relative inline-flex align-middle min-w-[100px]">
                         <button
-                            className={
-                                "text-black font-normal text-sm py-3 rounded outline-none hover:text-indigo-400 focus:outline-none ease-linear transition-all duration-150 "
-                            }
+                            className={ active ? 'border-b-2 border-b-indigo-400 py-2 text-sm w-[80px]' : 'border-b-2 hover:border-b-gray-300 border-b-transparent duration:200 ' +
+                        "w-[80px] text-gray-500  font-normal text-sm py-3 outline-none focus:outline-none ease-linear transition-all duration-150 "}
+
                             type="button"
                             ref={btnDropdownRef}
                             onClick={() => {

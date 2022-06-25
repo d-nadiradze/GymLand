@@ -3,7 +3,6 @@ import { Head } from '@inertiajs/inertia-react';
 import AuthAdmin from "@/Layouts/AuthAdmin";
 
 export default function AdminDashboard(props) {
-    console.log(props)
     return (
         <AuthAdmin
             auth={props.auth}

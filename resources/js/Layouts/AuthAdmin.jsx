@@ -6,10 +6,8 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
 import {NavDropDownLink} from "@/Components/NavDropDownLink";
 
-export default function AuthAdmin({ auth, header, children }) {
+export default function AuthAdmin({auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-
-    console.log(auth.user)
     return (
         <div className="min-h-screen bg-gray-100" >
             <nav className="bg-white border-b border-gray-100">
@@ -26,7 +24,7 @@ export default function AuthAdmin({ auth, header, children }) {
                                 <NavLink href={route('admin.dashboard')} active={route().current('admin.dashboard')}>
                                     Dashboard
                                 </NavLink>
-                                <NavDropDownLink dropdownItems={[
+                                <NavDropDownLink active={route().current('admin.admin.table')} dropdownItems={[
                                     {
                                         'name' : 'Admins Table',
                                         'href' : 'admin.table'
@@ -108,14 +106,14 @@ export default function AuthAdmin({ auth, header, children }) {
 
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('trainer.dashboard')} active={route().current('trainer.dashboard')}>
+                        <ResponsiveNavLink href={route('admin.dashboard')} active={route().current('admin.dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
-                            <div className="font-medium text-base text-gray-800">{auth.user.name}</div>
+                            <div className="font-medium text-base text-gray-800">{auth.user.first_name}</div>
                             <div className="font-medium text-sm text-gray-500">{auth.user.email}</div>
                         </div>
 
