@@ -1,0 +1,17 @@
+[
+    {
+        "img" : "./images/gyms/fitnessHeroes/img.png",
+        "name" : "fitness heroes",
+        "location" : "მარჯანიშვილი 2ა"
+    },
+    {
+        "img" : "./images/gyms/StrengthCenter/img.png",
+        "name" : "Strength Center",
+        "location" : "რუსთაველის გამზირი 24"
+    },
+    {
+        "img" : "./images/gyms/BodySculptingStudio/img.png",
+        "name" : "Body Sculpting Studio",
+        "location" : "ვ.ფშაველას 12ბ"
+    }
+]

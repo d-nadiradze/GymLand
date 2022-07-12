@@ -8,7 +8,7 @@ import { Link } from '@inertiajs/inertia-react';
 export default function Authenticated({ auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-[#F7F7F7]">
             <nav className="bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">

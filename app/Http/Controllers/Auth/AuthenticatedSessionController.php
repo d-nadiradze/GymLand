@@ -97,14 +97,31 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+
         Auth::guard('web')->logout();
-        Auth::guard('admin')->logout();
-        Auth::guard('trainer')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
+        return redirect('/');
+    }
+
+    public function adminLogout()
+    {
+        if(Auth::guard('admin')->check())
+        {
+            Auth::guard('admin')->logout();
+        }
+        return redirect()->route('admin.login');
+    }
+
+    public function trainerLogout()
+    {
+        if(Auth::guard('trainer')->check())
+        {
+            Auth::guard('trainer')->logout();
+        }
         return redirect('/');
     }
 }

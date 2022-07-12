@@ -1,0 +1,17 @@
+[
+    {
+        "img" : "./images/trainers/jemmyWatson.png",
+        "name" : "Jemmy Watson",
+        "role" : "Bootcamp trainer"
+    },
+    {
+        "img" : "./images/trainers/AshlieThompson.png",
+        "name" : "Ashlie Thompson",
+        "role" : "crossfit trainer"
+    },
+    {
+        "img" : "./images/trainers/JeremyWhite.png",
+        "name" : "Jeremy White",
+        "role" : "spinning trainer"
+    }
+]

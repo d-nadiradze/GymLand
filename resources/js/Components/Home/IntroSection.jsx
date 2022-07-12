@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "@inertiajs/inertia-react";
 
 const IntroSection = () => {
     return (
@@ -9,9 +10,9 @@ const IntroSection = () => {
                     <div className="max-w-[550px] ml-12 text-center px-2 text-white text-[100px] font-[700] leading-[90px] ">
                         CROSSFIT EXERCISES
                     </div>
-                    <div className="mt-16 text-center border-2 border-transparent bg-[#FF7A56] text-white uppercase px-[35px] py-[15px] rounded text-sm font-[500] cursor-pointer hover:bg-transparent hover:border-[#FF7A56] hover:text-[#FF7A56] duration-300 ease-in-out">
+                    <Link href={route("login")} className="mt-16 text-center border-2 border-transparent bg-[#FF7A56] text-white uppercase px-[35px] py-[15px] rounded text-sm font-[500] cursor-pointer hover:bg-transparent hover:border-[#FF7A56] hover:text-[#FF7A56] duration-300 ease-in-out">
                         get started now
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

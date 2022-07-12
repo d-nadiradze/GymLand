@@ -9,7 +9,7 @@ import {NavDropDownLink} from "@/Components/NavDropDownLink";
 export default function AuthAdmin({auth, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     return (
-        <div className="min-h-screen bg-gray-100" >
+        <div className="min-h-screen bg-[#F7F7F7]" >
             <nav className="bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -70,7 +70,7 @@ export default function AuthAdmin({auth, header, children }) {
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
-                                        <Dropdown.Link href={route('logout')} method="post" as="button">
+                                        <Dropdown.Link href={route('adminLogout')} method="post" as="button">
                                             Log Out
                                         </Dropdown.Link>
                                     </Dropdown.Content>

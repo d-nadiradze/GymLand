@@ -58,6 +58,17 @@ Route::middleware('auth')->group(function () {
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+});
+
+Route::middleware(['auth:trainer'])->group(function () {
+    Route::post('/trainerLogout', [AuthenticatedSessionController::class, 'trainerLogout'])
+        ->name('trainerLogout');
+});
+
+Route::middleware(['auth:admin'])->group(function () {
+
+    Route::post('/adminLogout', [AuthenticatedSessionController::class, 'adminLogout'])
+        ->name('adminLogout');
 });

@@ -23,6 +23,9 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'gym_id',
+        'selected_days',
+        'trainer_id',
     ];
 
     /**
@@ -47,5 +50,10 @@ class User extends Authenticatable
     public function trainer (): BelongsTo
     {
         return $this->belongsTo(Trainer::class);
+    }
+
+    public function gym (): BelongsTo
+    {
+        return $this->belongsTo(Gym::class);
     }
 }

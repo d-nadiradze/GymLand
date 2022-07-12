@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ModalController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,24 +27,28 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth'])->group(function (){
 
-Route::name('trainer.')->prefix('/trainer')->group(function () {
+    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+    Route::post('/selectGym', [UserController::class, 'selectGym'])->name('select_gym');
+    Route::get('/selectTrainer/{id}', [UserController::class, 'selectTrainer'])->name('select_trainer');
+    Route::post('/selectTrainer', [UserController::class, 'setTrainer'])->name('set_trainer');
+
+});
+
+Route::name('trainer.')->prefix('/trainer')->middleware(['auth:trainer'])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('TrainerDashboard');
-    })->middleware(['auth:trainer'])->name('dashboard');
+    })->name('dashboard');
 });
 
-Route::name('admin.')->prefix('/admin')->group(function () {
+Route::name('admin.')->prefix('/admin')->middleware(['auth:admin'])->group(function () {
 
-    Route::get('/dashboard', [AdminController::class, 'index'])->middleware(['auth:admin'])->name('dashboard');
-    Route::get('/admins/table', [AdminController::class, 'table'])->middleware(['auth:admin'])->name('admin.table');
-    Route::get('/users/table', [AdminController::class, 'usersTable'])->middleware(['auth:admin'])->name('users.table');
-    Route::get('/trainers/table', [AdminController::class, 'trainersTable'])->middleware(['auth:admin'])->name('trainers.table');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/admins/table', [AdminController::class, 'table'])->name('admin.table');
+    Route::get('/users/table', [AdminController::class, 'usersTable'])->name('users.table');
+    Route::get('/trainers/table', [AdminController::class, 'trainersTable'])->name('trainers.table');
 
 });
-
 
 require __DIR__.'/auth.php';

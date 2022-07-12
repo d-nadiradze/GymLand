@@ -5,6 +5,7 @@ import Nav from "@/Components/Home/Nav";
 import IntroSection from "@/Components/Home/IntroSection";
 import DietPlaning from "@/Components/Home/DietPlaning";
 import PersonalWorkout from "@/Components/Home/PersonalWorkout";
+import FitnessClasses from "@/Components/Home/FitnessClasses";
 
 export default function Welcome(props) {
     return (
@@ -14,6 +15,7 @@ export default function Welcome(props) {
             <IntroSection/>
             <PersonalWorkout/>
             <DietPlaning/>
+            <FitnessClasses/>
         </>
     );
 }

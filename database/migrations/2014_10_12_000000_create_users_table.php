@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->foreignId('trainer_id')->nullable()->constrained('trainers')->cascadeOnDelete();
+            $table->foreignId('gym_id')->nullable()->constrained('gyms')->cascadeOnDelete();
             $table->timestamp('email_verified_at')->nullable();
+            $table->json('selected_days')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

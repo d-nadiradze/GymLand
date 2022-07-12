@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {FacebookIcon, InstagramIcon, TweeterIcon} from "@/Components/svg";
+import {Link} from "@inertiajs/inertia-react";
 
 const Nav = () => {
    const [showNav,setShowNav] = useState();
@@ -41,23 +42,23 @@ const Nav = () => {
                     </a>
                 </div>
                 <div className="flex space-x-6 font-[500]">
-                    <a href="" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">Home</a>
-                    <a href="" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">pages</a>
-                    <a href="" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">portfolio</a>
-                    <a href="" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">elements</a>
-                    <a href="" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">features</a>
-                    <a href="" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">blog</a>
-                    <a href="" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">shop</a>
+                    <Link href="#" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">Home</Link>
+                    <Link href="#" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">pages</Link>
+                    <Link href="#" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">portfolio</Link>
+                    <Link href="#" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">elements</Link>
+                    <Link href="#" className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">features</Link>
+                    <Link href={route("register")} className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">register</Link>
+                    <Link href={route("login")} className="uppercase text-white hover:text-[#FFFFFF99] duration-200 ease-in-out text-sm">login</Link>
                 </div>
                 <div className="flex space-x-6">
                     <div className="">
-                        <FacebookIcon />
+                        <FacebookIcon color={'white'} />
                     </div>
                     <div className="">
-                        <InstagramIcon />
+                        <InstagramIcon color={'white'} />
                     </div>
                     <div className="">
-                        <TweeterIcon />
+                        <TweeterIcon color={'white'} />
                     </div>
                 </div>
             </div>

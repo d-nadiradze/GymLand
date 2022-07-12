@@ -4,22 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Trainee extends Model
+class Gym extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'trainer_id'
+        'name',
     ];
 
-    public function trainer (): BelongsTo
+    public function trainer() :hasMany
     {
-        return $this->belongsTo(Trainer::class);
+        return $this->hasMany(Trainer::class);
     }
-
 }

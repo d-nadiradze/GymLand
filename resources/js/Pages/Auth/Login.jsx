@@ -95,6 +95,10 @@ export default function Login({ status, canResetPassword }) {
                         </Link>
                     )}
 
+                    <Link href={route('register')} className="ml-4 text-sm text-customBlack">
+                        Register now
+                    </Link>
+
                     <Button className="ml-4" processing={processing}>
                         Log in
                     </Button>

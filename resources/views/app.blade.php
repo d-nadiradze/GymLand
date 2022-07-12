@@ -20,6 +20,8 @@
     <body class="font-sans antialiased">
         @inertia
 
+        <div id="modal-root"></div>
+
         @env ('local')
             <script src="http://localhost:8080/js/bundle.js"></script>
         @endenv

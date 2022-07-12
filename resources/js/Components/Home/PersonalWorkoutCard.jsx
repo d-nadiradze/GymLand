@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PersonalWorkoutCard = ({src, header, text}) => {
-    console.log(src)
     return (
         <div className='cursor-pointer lg:w-1/4 px-2 w-1/2 mt-4'>
             <div className="w-full relative group flex justify-center items-center overflow-hidden">
