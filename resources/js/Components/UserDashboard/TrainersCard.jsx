@@ -1,7 +1,7 @@
 import React from 'react';
 import {FacebookIcon, InstagramIcon, TweeterIcon} from "@/Components/svg";
 
-const TrainersCard = ({images, name, role}) => {
+const TrainersCard = ({images, name, role, social = true}) => {
     return (
         <div className='flex flex-col shadow '>
             <div className="group overflow-hidden">
@@ -13,17 +13,20 @@ const TrainersCard = ({images, name, role}) => {
             <div className="flex flex-col justify-center text-center bg-white py-12 rounded-b">
                 <div className="uppercase text-customBlack text-[15px] font-[500]">{ name }</div>
                 <div className="text-[#828282] text-[13px] mb-[20px] uppercase leading-[22px] mt-2">{ role }</div>
-                <div className="flex justify-center space-x-4">
-                    <div className='blackIcon p-3'>
-                        <FacebookIcon />
+                {
+                    social &&
+                    <div className="flex justify-center space-x-4">
+                        <div className='blackIcon p-3'>
+                            <FacebookIcon />
+                        </div>
+                        <div className='blackIcon p-3'>
+                            <InstagramIcon />
+                        </div>
+                        <div className='blackIcon p-3'>
+                            <TweeterIcon />
+                        </div>
                     </div>
-                    <div className='blackIcon p-3'>
-                        <InstagramIcon />
-                    </div>
-                    <div className='blackIcon p-3'>
-                        <TweeterIcon />
-                    </div>
-                </div>
+                }
             </div>
         </div>
     );

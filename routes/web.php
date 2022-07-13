@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ModalController;
+use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -37,9 +38,10 @@ Route::middleware(['auth'])->group(function (){
 });
 
 Route::name('trainer.')->prefix('/trainer')->middleware(['auth:trainer'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('TrainerDashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [TrainerController::class, 'index'])->name('dashboard');
+    Route::get('/{user}/trainingPlan', [TrainerController::class, 'viewTrainingPlan'])->name('view.trainingPlan');
+    Route::post('/trainingPlan/add', [TrainerController::class, 'createTrainingPlan'])->name('create.trainingPlan');
+    Route::post('/trainingPlan/edit', [TrainerController::class, 'editTrainingPlan'])->name('edit.trainingPlan');
 });
 
 Route::name('admin.')->prefix('/admin')->middleware(['auth:admin'])->group(function () {

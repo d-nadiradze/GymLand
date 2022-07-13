@@ -29,4 +29,10 @@ class Trainer extends Authenticatable
     {
         return $this->belongsTo(Gym::class);
     }
+
+
+    public function trainingPlan (): HasMany
+    {
+        return $this->HasMany(TrainingPlan::class);
+    }
 }
